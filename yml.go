@@ -101,7 +101,7 @@ type DeliveryOptions struct {
 	Options []DeliveryOption `xml:"option"`
 }
 
-//// cost 0 - free of charge delivery
+// // cost 0 - free of charge delivery
 func (do *DeliveryOptions) add(cost int, daysFrom, daysTo int, orderBefore int) {
 	daysStr := ""
 	if daysFrom > 255 {
@@ -184,6 +184,8 @@ type Offer struct {
 	Weight               float64          `xml:"weight,omitempty"`
 	Dimensions           string           `xml:"dimensions,omitempty"`
 	Params               []Param          `xml:"param,omitempty"`
+	Count                int              `xml:"count,omitempty"`
+	MinQuantity          int              `xml:"min-quantity,omitempty"`
 }
 
 func (o *Offer) AddPicture(pic string) {
